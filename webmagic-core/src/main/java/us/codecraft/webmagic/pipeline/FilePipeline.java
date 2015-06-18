@@ -39,7 +39,7 @@ public class FilePipeline extends FilePersistentBase implements Pipeline {
         String path = this.path + PATH_SEPERATOR;
         try {
             // 以追加的方式写文件
-            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(getFile(path + "userBehavior" + ".csv"), true),"UTF-8"));
+            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(new FileOutputStream(getFile(path + "userInfoNew" + ".csv"), true),"UTF-8"));
             //printWriter.println("url:\t" + resultItems.getRequest().getUrl());
             for (Map.Entry<String, Object> entry : resultItems.getAll().entrySet()) {
                 if (entry.getValue() instanceof Iterable) {
@@ -49,7 +49,9 @@ public class FilePipeline extends FilePersistentBase implements Pipeline {
                         printWriter.println(o);
                     }
                 } else {
-                    printWriter.println(entry.getKey() + "," + entry.getValue());
+                    //printWriter.println(entry.getKey() + "," + entry.getValue());
+                    printWriter.println(entry.getKey());
+
                 }
             }
             printWriter.close();
