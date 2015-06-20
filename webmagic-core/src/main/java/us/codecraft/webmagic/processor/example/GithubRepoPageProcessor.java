@@ -20,7 +20,7 @@ import java.util.Map;
  */
 public class GithubRepoPageProcessor implements PageProcessor {
 
-    private Site site = Site.me().setTimeOut(20000).setRetryTimes(2).setSleepTime(5100);
+    private Site site = Site.me().setTimeOut(20000).setRetryTimes(2).setSleepTime(5157);
 
     @Override
     // process是定制爬虫逻辑的核心接口，在这里编写抽取逻辑
@@ -123,7 +123,7 @@ public class GithubRepoPageProcessor implements PageProcessor {
                 //.addUrl("http://i.xiami.com/mayeroleg/fans?spm=a1z1s.6632057.350708681.1.bYfDHS") //new new
                 //.addUrl("http://www.xiami.com/space/fans/u/9/page/27")
                 .addPipeline(new FilePipeline("/home/zhangchengfei/temp/"))//.setScheduler(new FileCacheQueueScheduler())
-                .thread(2).startUrls(list)
+                .thread(1).startUrls(list)
                 .run();
     }
 }
